@@ -1,4 +1,5 @@
 
+
 -- 1-Vazifa
 SELECT  ship_country
 FROM orders
@@ -40,3 +41,42 @@ WHERE ship_region IS NOT NULL
 GROUP BY ship_country
 HAVING SUM(freight) > 2750
 ORDER BY SUM(freight) DESC;
+
+
+
+
+
+
+
+
+-- 1-amaliy
+SELECT products.product_name, categories.category_name
+FROM products
+INNER JOIN categories
+ON products.category_id = categories.category_id;
+
+-- 2-amaliy
+
+SELECT customers.company_name, orders.order_date
+FROM customers
+LEFT JOIN orders
+ON customers.customer_id = orders.customer_id;
+
+
+-- 3-amaliy
+
+SELECT territories.territory_id, employees.last_name
+FROM employees
+RIGHT JOIN employee_territories
+ON employees.employee_id = employee_territories.employee_id
+RIGHT JOIN territories
+ON employee_territories.territory_id = territories.territory_id;
+
+-- 4-vazifa
+
+SELECT categories.category_name, products.product_name
+FROM categories
+FULL OUTER JOIN products
+ON categories.category_id = products.category_id;
+
+
